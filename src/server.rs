@@ -25,17 +25,19 @@ use std::time::{Duration, SystemTime};
 use byteorder::{LittleEndian, WriteBytesExt};
 use hex;
 use humansize::{file_size_opts as fsopts, FileSize};
-use mio::{Events, Poll, PollOpt, Ready, Token};
 use mio::net::{TcpListener, UdpSocket};
+use mio::{Events, Poll, PollOpt, Ready, Token};
 use mio_extras::timer::Timer;
 
-use crate::{Error, MIN_REQUEST_LENGTH, RtMessage, Tag};
 use crate::config::ServerConfig;
 use crate::grease::Grease;
 use crate::key::{LongTermKey, OnlineKey};
 use crate::kms;
 use crate::merkle::MerkleTree;
 use crate::stats::{AggregatedStats, ClientStatEntry, PerClientStats, ServerStats};
+use crate::{Error, RtMessage, Tag, MIN_REQUEST_LENGTH};
+
+pub use mio::Events as MioEvents;
 
 // mio event registrations
 const EVT_MESSAGE: Token = Token(0);
