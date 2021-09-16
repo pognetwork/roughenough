@@ -66,6 +66,7 @@ mod error;
 mod message;
 mod tag;
 
+pub mod client;
 pub mod config;
 pub mod grease;
 pub mod key;

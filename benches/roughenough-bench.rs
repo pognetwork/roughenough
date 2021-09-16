@@ -4,7 +4,7 @@ extern crate roughenough;
 
 use criterion::{black_box, Criterion};
 
-use roughenough::merkle::{MerkleTree, root_from_paths};
+use roughenough::merkle::MerkleTree;
 use roughenough::RtMessage;
 use roughenough::Tag;
 
